@@ -1,16 +1,5 @@
 {
-  "main": "node_modules/expo/AppEntry.js",
-  "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web",
-    "eject": "expo eject"
-  },
-  "dependencies": {
-    "country-list": "^2.2.0",
-    "expo": "~41.0.1",
-    "expo-status-bar": "~1.0.4",
+  "peerDependencies": {
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-41.0.0.tar.gz",
@@ -23,5 +12,21 @@
     "@types/react-native": "~0.63.2",
     "typescript": "~4.0.0"
   },
-  "private": true
+  "private": false,
+  "name": "rn-dropdown-country-picker",
+  "version": "1.2.0",
+  "description": "A fully customizable react native component that displays the flag and name of the selected country from a dropdwon list.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/faccon/rn-dropdown-country-picker"
+  },
+  "keywords": [
+    "dropdown",
+    "country-picker",
+    "countypicker",
+    "country-dropdown",
+    "country-selection"
+  ],
+  "author": "Adeniyi Babatunde",
+  "license": "ISC"
 }
