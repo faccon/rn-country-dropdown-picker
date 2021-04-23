@@ -213,7 +213,7 @@ const styles = StyleSheet.create({
   FLstyle: {
     borderWidth: 0.5,
     borderTopWidth: 0,
-    maxHeight: 500,
+    maxHeight: 250,
   },
   RowView: {
     flex: 1,
