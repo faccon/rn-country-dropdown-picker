@@ -9,6 +9,7 @@ import {
   TextInput,
   TextInputChangeEventData,
   TextStyle,
+  TouchableOpacity,
   View,
   ViewStyle,
 } from "react-native";
@@ -48,6 +49,11 @@ export default function App({
   const filteredCodes = useRef<string[]>();
   let code = useRef<string>();
 
+  const DropdownContainerStyleDefault = {
+    opacity,
+    width: "100%",
+  };
+
   const getName = (e: string): any => {
     const res = countryData.filter((i) => {
       if (i.code.toLowerCase() === e.toLowerCase()) {
@@ -80,12 +86,12 @@ export default function App({
     }
 
     return (
-      <View style={{ elevation: 1, zIndex: 1 }}>
+      <TouchableOpacity style={{ elevation: 1, zIndex: 1 }} activeOpacity={0.8} >
         <View
           style={
             DropdownRowStyle
-              ? DropdownRowStyle
-              : [styles.RowView, { flexDirection: "row", alignItems: "center" }]
+              ? [DropdownRowStyle, styles.RowStyleDefault]
+              : [styles.RowView, styles.RowStyleDefault]
           }
         >
           <View>
@@ -97,14 +103,16 @@ export default function App({
           </View>
           <Text
             style={
-              countryNameStyle ? countryNameStyle : styles.countryNameStyle
+              DropdownCountryTextStyle
+                ? DropdownCountryTextStyle
+                : styles.DropdownCountryTextStyle
             }
             onPress={() => CountrySelected(item)}
           >
             {name}
           </Text>
         </View>
-      </View>
+      </TouchableOpacity>
     );
   };
 
@@ -125,16 +133,22 @@ export default function App({
 
   return (
     <View style={ContainerStyle ? ContainerStyle : styles.viewStyle}>
-      <View style={InputFieldStyle ? InputFieldStyle : styles.InputField}>
+      <View
+        style={
+          InputFieldStyle
+            ? [InputFieldStyle, styles.InputFieldDefault]
+            : styles.InputField
+        }
+      >
         {CountryCodes.includes(iso) && CountryNames.includes(term) ? (
           <Flag code={iso} size={24} />
         ) : null}
         <TextInput
           style={
-            DropdownCountryTextStyle
-              ? DropdownCountryTextStyle
+            countryNameStyle
+              ? countryNameStyle
               : [
-                  styles.DropdownCountryTextStyle,
+                  styles.countryNameStyle,
                   {
                     paddingStart:
                       CountryCodes.includes(iso) && CountryNames.includes(term)
@@ -151,8 +165,8 @@ export default function App({
       <FlatList
         style={
           DropdownContainerStyle
-            ? DropdownContainerStyle
-            : [styles.FLstyle, { opacity, width: "100%" }]
+            ? [DropdownContainerStyle, DropdownContainerStyleDefault]
+            : [styles.FLstyle, DropdownContainerStyleDefault]
         }
         data={
           filteredCodes.current === null ? CountryCodes : filteredCodes.current
@@ -181,6 +195,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 6,
     borderBottomWidth: 1,
   },
+  InputFieldDefault: {
+    flexDirection: "row",
+    alignItems: "center",
+    width: "100%",
+  },
   DropdownCountryTextStyle: {
     fontSize: 18,
     marginVertical: 5,
@@ -205,4 +224,5 @@ const styles = StyleSheet.create({
     paddingStart: 18,
     flex: 1,
   },
+  RowStyleDefault: { flexDirection: "row", alignItems: "center" },
 });
