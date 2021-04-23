@@ -18,7 +18,7 @@ import CountryPicker from 'rn-country-dropdown-picker';
 
 ## Usage
 
-This component can be used as it is with any customization, just import and use
+This component can be used as it is without any customization, just import and use
 
 ```jsx
 
