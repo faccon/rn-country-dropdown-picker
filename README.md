@@ -1,4 +1,4 @@
-# rn-dropdown-country-picker
+# rn-country-dropdown-picker
 
 A fully customizable react native component that displays the flag and name of the selected country from a dropdwon list.
 
