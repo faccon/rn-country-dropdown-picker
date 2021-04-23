@@ -105,7 +105,6 @@ export default function DropdownCountyPicker({
             <Flag
               code={item}
               size={flagSize ? flagSize : 24}
-              type={flagType === "shiny" || "flat" ? flagType : null}
             />
           </View>
           <Text
