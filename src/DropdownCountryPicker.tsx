@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Flag from "react-native-flags";
 import {
   FlatList,
@@ -13,24 +13,9 @@ import {
   View,
   ViewStyle,
 } from "react-native";
-import { CountryCodes, countryData, CountryNames } from "../data";
-
-interface RProps {
-  item: string;
-}
-
-interface IProps {
-  ContainerStyle?: StyleProp<ViewStyle>;
-  InputFieldStyle?: StyleProp<ViewStyle>;
-  DropdownCountryTextStyle?: StyleProp<TextStyle>;
-  DropdownContainerStyle?: StyleProp<ViewStyle>;
-  DropdownRowStyle?: StyleProp<ViewStyle>;
-  countryNameStyle?: StyleProp<TextStyle>;
-  flagSize?: number;
-  flagType?: string;
-  Placeholder?: string;
-  setCountry: (e: string) => void;
-}
+import { CountryCodes, countryData, CountryNames } from "./data";
+import * as AllFunctions from "./functions";
+import { IProps, RProps } from "./Interfaces";
 
 export default function DropdownCountyPicker({
   ContainerStyle,
@@ -45,7 +30,7 @@ export default function DropdownCountyPicker({
 }: IProps) {
   const [term, setTerm] = useState<string>("");
   const [iso, setISO] = useState<string>("");
-  const [Fheight, setFheight] = useState(100);
+  const [Fheight, setFheight] = useState(250);
   const [opacity, setOpacity] = useState(0);
   const [refresh, setRefresh] = useState<boolean>();
   const filteredCodes = useRef<string[]>();
@@ -54,51 +39,30 @@ export default function DropdownCountyPicker({
   const DropdownContainerStyleDefault = {
     opacity,
     width: "100%",
-  };
-
-  const getName = (e: string): any => {
-    const res = countryData.filter((i) => {
-      if (i.code.toLowerCase() === e.toLowerCase()) {
-        return i.name;
-      }
-    });
-    return res[0].name;
-  };
-
-  const getCode = (e: string): any => {
-    const res = countryData.filter((i) => {
-      if (i.name.toLowerCase() === e.toLowerCase()) {
-        return i.code;
-      }
-    });
-    return res[0].code;
-  };
-
-  const FLstyle = {
     borderWidth: 0.5,
     borderTopWidth: 0,
-    height: Fheight,
-    maxHeight: 300,
-  }
+    borderBottomWidth: Fheight > 0 ? 0.5 : 0,
+    maxHeight: Fheight,
+  };
 
   const renderItem: React.FC<RProps> = ({ item }) => {
-    let name = getName(item);
+    let name = AllFunctions.getName(item);
+
     function CountrySelected(item: string) {
-      let name = getName(item);
-      // setOpacity(0);
+      let name = AllFunctions.getName(item);
       if (typeof name === "undefined") {
         return;
       } else {
         setISO(item);
         setTerm(name);
         setCountry(name);
-        setFheight(0)
+        setFheight(0);
       }
     }
 
     return (
       <TouchableOpacity
-        style={{ elevation: 1, zIndex: 1 }}
+        style={{ elevation: 10, zIndex: 10 }}
         activeOpacity={0.8}
         onPress={() => CountrySelected(item)}
       >
@@ -110,10 +74,7 @@ export default function DropdownCountyPicker({
           }
         >
           <View>
-            <Flag
-              code={item}
-              size={flagSize ? flagSize : 24}
-            />
+            <Flag code={item} size={flagSize ? flagSize : 24} />
           </View>
           <Text
             style={
@@ -130,14 +91,21 @@ export default function DropdownCountyPicker({
   };
 
   const searchFilter = (e: NativeSyntheticEvent<TextInputChangeEventData>) => {
-    setOpacity(1);
+    if (e.nativeEvent.text.length > 0) {
+      setFheight(250);
+      setOpacity(1);
+    } else {
+      setFheight(0);
+      setOpacity(0);
+    }
+    setISO("");
     setTerm(e.nativeEvent.text);
     const convertedCodes: string[] = [];
     const res = CountryNames.filter((item) => {
       return item.toLowerCase().includes(e.nativeEvent.text.toLowerCase());
     });
     res.forEach((e) => {
-      code.current = getCode(e);
+      code.current = AllFunctions.getCode(e);
       convertedCodes.push(code.current!);
     });
     filteredCodes.current = convertedCodes;
@@ -179,7 +147,7 @@ export default function DropdownCountyPicker({
         style={
           DropdownContainerStyle
             ? [DropdownContainerStyle, DropdownContainerStyleDefault]
-            : [FLstyle, DropdownContainerStyleDefault]
+            : [DropdownContainerStyleDefault]
         }
         data={
           filteredCodes.current === null ? CountryCodes : filteredCodes.current
@@ -216,9 +184,9 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginVertical: 5,
     width: "100%",
-    paddingStart: 15
+    paddingStart: 15,
   },
- 
+
   RowView: {
     flex: 1,
     borderBottomWidth: 1,
@@ -232,7 +200,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     paddingStart: 10,
     flex: 1,
-    color: 'black'
+    color: "black",
   },
   RowStyleDefault: { flexDirection: "row", alignItems: "center" },
 });
