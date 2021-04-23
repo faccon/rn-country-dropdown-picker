@@ -2,8 +2,8 @@
 
 A fully customizable react native component that displays the flag and name of the selected country from a dropdwon list.
 
-![](https://github.com/faccon/rn-dropdown-country-picker/blob/master/src/docs/rn-country-dropdown-picker.gif)
-![](https://github.com/faccon/rn-dropdown-country-picker/blob/master/src/docs/rn-country-dropdown-picker%20(2).gif)
+![](https://github.com/faccon/rn-country-dropdown-picker/blob/master/src/docs/rn-country-dropdown-picker.gif)
+![](https://github.com/faccon/rn-country-dropdown-picker/blob/master/src/docs/rn-country-dropdown-picker%20(2).gif)
 
 
 ## Import components
@@ -15,7 +15,7 @@ A fully customizable react native component that displays the flag and name of t
 
 ### Import Component
 ```javascript
-import CountryPicker from 'rn-dropdown-country-picker';
+import CountryPicker from 'rn-country-dropdown-picker';
 
 ```
 
@@ -27,7 +27,7 @@ This component can be used as it is with any customization, just import and use
 
 import React from "react";
 import {StyleSheet, View } from "react-native";
-import CountryPicker from "rn-dropdown-country-picker";
+import CountryPicker from "rn-country-dropdown-picker";
 
 function Home() {
 
@@ -55,7 +55,7 @@ export default Home;
 
 import React from "react";
 import { Dimensions, StyleSheet, View } from "react-native";
-import CountryPicker from "rn-dropdown-country-picker";
+import CountryPicker from "rn-country-dropdown-picker";
 
 function Home() {
 
@@ -87,17 +87,17 @@ export default Home;
 
 ```
 
-| Props                         | Type               | Description                                                                 	     |  Optional      |
-| ----------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------ |
-| InputFieldStyle		| View Style	     | Defines the first color in the linear gradient of a chart's background   	     |      yes       |
-| ContainerStyle                | View Style         | Defines the View style of the components container    				     |      yes       |
-| DropdownCountryTextStyle      | Text Style         | Defines the style of the country names in the dropdown    			     |      yes       |
-| DropdownContainerStyle	| View Style         | Defines the style of the whole dropdown container        			     |      yes       |
-| DropdownRowStyle		| View Style         | Defines the style of the individual view row in the dropdown ( icon + country name )  |      yes       |
-| countryNameStyle		| Text Style         | Defines the style of the selected country name  					     |      yes       |
-| flagSize			| Number             | Flag size according to react-native-flags  (Allowed values: 16, 24, 32, 48 or 64)     |      yes       |
-| Placeholder                   | String             | Place holder for input                                                                |      yes       |
-| setCountry	                | (e:string) => void | a function that sets the selected country                                             |    mandatory   |
+| Props                         | Type               | Description                                                                 	          |  Optional      |
+| ----------------------------- | ------------------ | -------------------------------------------------------------------------------------- | -------------- |
+| InputFieldStyle		            | View Style	       | Defines the first color in the linear gradient of a chart's background   	            |      yes       |
+| ContainerStyle                | View Style         | Defines the View style of the components container    				                          |      yes       |
+| DropdownCountryTextStyle      | Text Style         | Defines the style of the country names in the dropdown    			                        |      yes       |
+| DropdownContainerStyle	      | View Style         | Defines the style of the whole dropdown container        			                        |      yes       |
+| DropdownRowStyle		          | View Style         | Defines the style of the individual view row in the dropdown ( icon + country name )   |      yes       |
+| countryNameStyle	          	| Text Style         | Defines the style of the selected country name  					                              |      yes       |
+| flagSize			                | Number             | Flag size according to react-native-flags  (Allowed values: 16, 24, 32, 48 or 64)      |      yes       |
+| Placeholder                   | String             | Place holder for input                                                                 |      yes       |
+| setCountry	                  | (e:string) => void | a function that sets the selected country                                              |    mandatory   |
 
 ## More information
 
