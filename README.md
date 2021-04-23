@@ -6,7 +6,7 @@ A fully customizable react native component that displays the flag and name of t
 ## Import components
 
 1. `npm i react-native-flag` install peer dependencies
-2. `npm i rn-dropdown-country-picker`
+2. `npm i rn-country-dropdown-picker`
 
 
 
