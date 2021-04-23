@@ -15,7 +15,7 @@
   "private": false,
   "name": "rn-country-dropdown-picker",
   "main": "App.tsx",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A fully customizable react native component that displays the flag and name of the selected country from a dropdwon list.",
   "repository": {
     "type": "git",
