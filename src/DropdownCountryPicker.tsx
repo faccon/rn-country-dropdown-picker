@@ -40,12 +40,12 @@ export default function DropdownCountyPicker({
   DropdownRowStyle,
   countryNameStyle,
   flagSize,
-  flagType,
   Placeholder,
   setCountry,
 }: IProps) {
   const [term, setTerm] = useState<string>("");
   const [iso, setISO] = useState<string>("");
+  const [Fheight, setFheight] = useState(100);
   const [opacity, setOpacity] = useState(0);
   const [refresh, setRefresh] = useState<boolean>();
   const filteredCodes = useRef<string[]>();
@@ -74,17 +74,25 @@ export default function DropdownCountyPicker({
     return res[0].code;
   };
 
+  const FLstyle = {
+    borderWidth: 0.5,
+    borderTopWidth: 0,
+    height: Fheight,
+    maxHeight: 300,
+  }
+
   const renderItem: React.FC<RProps> = ({ item }) => {
     let name = getName(item);
     function CountrySelected(item: string) {
       let name = getName(item);
-      setOpacity(0);
+      // setOpacity(0);
       if (typeof name === "undefined") {
         return;
       } else {
         setISO(item);
         setTerm(name);
         setCountry(name);
+        setFheight(0)
       }
     }
 
@@ -171,7 +179,7 @@ export default function DropdownCountyPicker({
         style={
           DropdownContainerStyle
             ? [DropdownContainerStyle, DropdownContainerStyleDefault]
-            : [styles.FLstyle, DropdownContainerStyleDefault]
+            : [FLstyle, DropdownContainerStyleDefault]
         }
         data={
           filteredCodes.current === null ? CountryCodes : filteredCodes.current
@@ -189,7 +197,6 @@ const styles = StyleSheet.create({
   viewStyle: {
     backgroundColor: "#fff",
     alignItems: "center",
-    marginTop: 100,
     paddingHorizontal: 10,
     width: "100%",
   },
@@ -209,12 +216,9 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginVertical: 5,
     width: "100%",
+    paddingStart: 15
   },
-  FLstyle: {
-    borderWidth: 0.5,
-    borderTopWidth: 0,
-    maxHeight: 250,
-  },
+ 
   RowView: {
     flex: 1,
     borderBottomWidth: 1,
@@ -226,8 +230,9 @@ const styles = StyleSheet.create({
   countryNameStyle: {
     paddingVertical: 8,
     fontSize: 18,
-    paddingStart: 18,
+    paddingStart: 10,
     flex: 1,
+    color: 'black'
   },
   RowStyleDefault: { flexDirection: "row", alignItems: "center" },
 });
