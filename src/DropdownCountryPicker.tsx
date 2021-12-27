@@ -26,17 +26,17 @@ export default function DropdownCountyPicker({
   countryNameStyle,
   flagSize,
   Placeholder,
-  setCountry,
+  selectedItem,
 }: IProps) {
   const [term, setTerm] = useState<string>("");
   const [iso, setISO] = useState<string>("");
-  const [Fheight, setFheight] = useState(250);
-  const [opacity, setOpacity] = useState(0);
+  const [Fheight, setFheight] = useState<number>(250);
+  const [opacity, setOpacity] = useState<number>(0);
   const [refresh, setRefresh] = useState<boolean>();
   const filteredCodes = useRef<string[]>();
   let code = useRef<string>();
 
-  const DropdownContainerStyleDefault = {
+  const DropdownContainerStyleDefault: object = {
     opacity,
     width: "100%",
     borderWidth: 0.5,
@@ -55,7 +55,7 @@ export default function DropdownCountyPicker({
       } else {
         setISO(item);
         setTerm(name);
-        setCountry(name);
+        selectedItem({ country: name, code: item });
         setFheight(0);
       }
     }
@@ -139,6 +139,7 @@ export default function DropdownCountyPicker({
                 ]
           }
           placeholder={Placeholder ? Placeholder : "Select Country..."}
+          placeholderTextColor='black'
           value={term}
           onChange={searchFilter}
         />
@@ -185,6 +186,7 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     width: "100%",
     paddingStart: 15,
+    color: 'black'
   },
 
   RowView: {

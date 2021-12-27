@@ -26,26 +26,23 @@ This component can be used as it is without any customization, just import and u
 
 ```jsx
 
-import React from "react";
-import {StyleSheet, View } from "react-native";
-import CountryPicker from "rn-country-dropdown-picker";
+import React from 'react';
+import {View, Text} from 'react-native';
+import CountryPicker from 'rn-country-dropdown-picker';
 
-function Home() {
+export default function App() {
 
-  function setCountry(e: string) {
+  function item(e) {
     console.log(e);
   }
 
   return (
-    <View style={styles.container}>
-      <CountryPicker setCountry={setCountry} />
+    <View style={{flex: 1, backgroundColor: 'white'}}>
+      <CountryPicker selectedItem={item} />
     </View>
   );
 }
 
-const styles = StyleSheet.create({...},});
-
-export default Home;
 
 
 ```
@@ -58,9 +55,9 @@ import React from "react";
 import { Dimensions, StyleSheet, View } from "react-native";
 import CountryPicker from "rn-country-dropdown-picker";
 
-function Home() {
+export default function App() {
 
-  function setCountry(e: string) {
+  function item(e) {
     console.log(e);
   }
 
@@ -74,16 +71,14 @@ function Home() {
         DropdownCountryTextStyle={styles.myDropdownCountryTextStyle}
         countryNameStyle={styles.mycountryNameStyle}
         flagSize={24}
-        setCountry={setCountry}
+        selectedItem={item}
       />
 
     </View>
   );
 }
 
-const styles = StyleSheet.create({{...},});
-
-export default Home;
+const styles = StyleSheet.create({{...}});
 
 
 ```
