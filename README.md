@@ -7,7 +7,7 @@ A fully customizable react native component that displays the flag and name of t
 |![](https://github.com/faccon/rn-country-dropdown-picker/blob/master/src/docs/rn-country-dropdown-picker.gif)|![](https://github.com/faccon/rn-country-dropdown-picker/blob/master/src/docs/rn-country-dropdown-picker2.gif)|
 
 
-## Import components
+## Installation
 
 1. `npm i react-native-flags` install peer dependencies
 2. `npm i rn-country-dropdown-picker`
@@ -38,7 +38,7 @@ export default function App() {
 
   return (
     <View style={{flex: 1, backgroundColor: 'white'}}>
-      <CountryPicker selectedItem={item} />
+      <CountryPicker selectedItem={handleSelection} />
     </View>
   );
 }
@@ -93,7 +93,8 @@ const styles = StyleSheet.create({{...}});
 | countryNameStyle	          	| Text Style         | Defines the style of the selected country name  					                              |      yes       |
 | flagSize			                | Number             | Flag size according to react-native-flags  (Allowed values: 16, 24, 32, 48 or 64)      |      yes       |
 | Placeholder                   | String             | Place holder for input                                                                 |      yes       |
-| setCountry	                  | (e:string) => void | a function that sets the selected country                                              |    mandatory   |
+| selectedItem	                  | (e: {  country: string;
+  code: string}) => void | a function that sets the selected country and  code                                             |    mandatory   |
 
 ## More information
 
