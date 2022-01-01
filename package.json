@@ -1,7 +1,7 @@
 {
   "peerDependencies": {
-    "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react": "*",
+    "react-dom": "*"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
@@ -18,13 +18,27 @@
     "type": "git",
     "url": "git+https://github.com/faccon/rn-country-dropdown-picker"
   },
+  "bugs": {
+    "url": "https://github.com/faccon/rn-country-dropdown-picker/issues"
+  },
+  "types": "index.d.ts",
   "keywords": [
     "dropdown",
     "country-picker",
     "countypicker",
     "country-dropdown",
     "country-selection",
-    "searchable-country"
+    "searchable-country",
+    "picker",
+    "dropdown",
+    "react",
+    "reactnative",
+    "react-native",
+    "react native",
+    "android",
+    "ios",
+    "javascript",
+    "typescript"
   ],
   "author": "Adeniyi Babatunde",
   "license": "ISC"
