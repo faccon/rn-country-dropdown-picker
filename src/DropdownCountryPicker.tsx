@@ -15,7 +15,7 @@ import {
 } from "react-native";
 import { CountryCodes, countryData, CountryNames } from "./data";
 import * as AllFunctions from "./functions";
-import { IProps, RProps } from "./Interfaces";
+import { DDMPRrops, RProps } from "rn-country-dropdown-picker";
 
 export default function DropdownCountyPicker({
   ContainerStyle,
@@ -27,7 +27,7 @@ export default function DropdownCountyPicker({
   flagSize,
   Placeholder,
   selectedItem,
-}: IProps) {
+}: DDMPRrops) {
   const [term, setTerm] = useState<string>("");
   const [iso, setISO] = useState<string>("");
   const [Fheight, setFheight] = useState<number>(250);
@@ -139,7 +139,7 @@ export default function DropdownCountyPicker({
                 ]
           }
           placeholder={Placeholder ? Placeholder : "Select Country..."}
-          placeholderTextColor='black'
+          placeholderTextColor="black"
           value={term}
           onChange={searchFilter}
         />
@@ -186,7 +186,7 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     width: "100%",
     paddingStart: 15,
-    color: 'black'
+    color: "black",
   },
 
   RowView: {
