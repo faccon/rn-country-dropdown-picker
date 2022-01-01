@@ -32,7 +32,7 @@ import CountryPicker from 'rn-country-dropdown-picker';
 
 export default function App() {
 
-  function item(e) {
+  function handleSelection(e) {
     console.log(e);
   }
 
@@ -57,7 +57,7 @@ import CountryPicker from "rn-country-dropdown-picker";
 
 export default function App() {
 
-  function item(e) {
+  function handleSelection(e) {
     console.log(e);
   }
 
@@ -71,7 +71,7 @@ export default function App() {
         DropdownCountryTextStyle={styles.myDropdownCountryTextStyle}
         countryNameStyle={styles.mycountryNameStyle}
         flagSize={24}
-        selectedItem={item}
+        selectedItem={handleSelection}
       />
 
     </View>
