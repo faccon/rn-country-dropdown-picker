@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   DropdownCountryTextStyle: {
-    fontSize: 18,
+    fontSize: 20,
     marginVertical: 5,
     width: "100%",
     paddingStart: 15,
