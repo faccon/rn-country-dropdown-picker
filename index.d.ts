@@ -1,5 +1,6 @@
 declare module 'rn-country-dropdown-picker' {
   import { StyleProp, TextStyle, ViewStyle } from 'react-native'
+  import { ComponentType } from 'react'
 
   interface RProp {
     item: string
@@ -21,6 +22,8 @@ declare module 'rn-country-dropdown-picker' {
     selectedItem: (e: ItemProps) => void
   }
 
-  export type DDMPRrops = IProps
   export type RProps = RProp
+
+  const DDMPRrops: ComponentType<IProps> & RProp
+  export default DDMPRrops
 }
