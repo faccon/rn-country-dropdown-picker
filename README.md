@@ -93,8 +93,7 @@ const styles = StyleSheet.create({{...}});
 | countryNameStyle	          	| Text Style         | Defines the style of the selected country name  					                              |      yes       |
 | flagSize			                | Number             | Flag size according to react-native-flags  (Allowed values: 16, 24, 32, 48 or 64)      |      yes       |
 | Placeholder                   | String             | Place holder for input                                                                 |      yes       |
-| selectedItem	                  | (e: {  country: string;
-  code: string}) => void | a function that sets the selected country and  code                                             |    mandatory   |
+| selectedItem	                | (e:{country:stringcode: string}) => void | a function that sets the selected country and  code                                    |    mandatory   |
 
 ## More information
 
