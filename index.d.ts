@@ -22,7 +22,8 @@ declare module 'rn-country-dropdown-picker' {
     selectedItem: (e: ItemProps) => void
   }
 
-  export type RProps = RProp
+  export type RProps = RProp & IProps
+  export type RenderComProp = RProp
 
   const DDMPRrops: ComponentType<IProps> & RProp
   export default DDMPRrops

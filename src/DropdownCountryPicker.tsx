@@ -15,7 +15,7 @@ import {
 } from "react-native";
 import { CountryCodes, countryData, CountryNames } from "./data";
 import * as AllFunctions from "./functions";
-import { DDMPRrops, RProps } from "rn-country-dropdown-picker";
+import { RenderComProp, RProps } from "rn-country-dropdown-picker";
 
 export default function DropdownCountyPicker({
   ContainerStyle,
@@ -27,7 +27,7 @@ export default function DropdownCountyPicker({
   flagSize,
   Placeholder,
   selectedItem,
-}: DDMPRrops) {
+}: RProps) {
   const [term, setTerm] = useState<string>("");
   const [iso, setISO] = useState<string>("");
   const [Fheight, setFheight] = useState<number>(250);
@@ -45,7 +45,7 @@ export default function DropdownCountyPicker({
     maxHeight: Fheight,
   };
 
-  const renderItem: React.FC<RProps> = ({ item }) => {
+  const renderItem: React.FC<RenderComProp> = ({ item }) => {
     let name = AllFunctions.getName(item);
 
     function CountrySelected(item: string) {
